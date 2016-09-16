@@ -1,0 +1,60 @@
+extends ./layout
+
+block body
+	nav.navbar.navbar-default(role='navigation')
+			.container
+				.container-fluid
+					// Brand and toggle get grouped for better mobile display
+					.navbar-header
+						button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+							span.sr-only Toggle navigation
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						a.navbar-brand(href="/") Hotdeal.vn
+					// Collect the nav links, forms, and other content for toggling
+					#bs-example-navbar-collapse-1.collapse.navbar-collapse
+						ul.nav.navbar-nav
+							li.active
+								a(href='#') Link
+							li
+								a(href='#') Link
+							li.dropdown
+								a.dropdown-toggle(href='#', data-toggle='dropdown')
+									| Link 
+									span.caret
+								ul.dropdown-menu
+									li
+										a(href='#') Link
+									li
+										a(href='#') Link
+									li
+										a(href='#') Link
+									li.divider
+									li
+										a(href='#') Link
+									li.divider
+									li
+										a(href='#') One more separated link
+						form.navbar-form(role='search')
+							.form-group
+								input.form-control(type='text', placeholder='Search')
+							a.btn.btn-default(href="/session/new/" ) Sign in
+							a.btn.btn-primary(href="/user/new/") Sign up
+	.container
+		.row
+			.col-md-8
+				h1 Welcome to my website
+				a(href="/user/new" type="submit" class="btn btn-primary") Sign up now!
+			.col-md-4
+				form(action="http://localhost:1337/send" method="GET" class="form-signin")
+					h2.form-signin-heading Create an acount
+					div 
+						input(type="text" class="form-control" placeholder="your name" name="name")
+						input(type="text" class="form-control" placeholder="your title" name="title")
+						input(type="text" class="form-control" placeholder="your email address" name="email")
+						input(type="password" class="form-control" placeholder="password" name="password")
+						input(type="password" class="form-control" placeholder="password confirmation" name="confirmation")
+						input(type="submit" class="btn btn-lg btn-primary btn-block" value="Create Acount")
+						p By clicking "Create Acount", you agree to our terms of service and privacy policy. We'll occasionally send you account related emails.
+					input(type="hidden", name="_csrf", value=_csrf)

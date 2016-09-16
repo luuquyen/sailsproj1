@@ -1,0 +1,9 @@
+extends ../layout
+block body
+	.container
+		h1= user.name
+		h3= user.title
+		hr
+		h3 count:
+			span=user.email
+		a(class="btn btn-medium btn-primary" href="/user/edit/"+user.id) Edit

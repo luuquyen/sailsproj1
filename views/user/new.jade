@@ -1,0 +1,16 @@
+extends ../layout
+
+block body
+	.container
+		.form-sign-up
+			form(action="/user/create" method="POST" class="form-signin")
+				h2.form-signin-heading Create an acount
+				div 
+					input(type="text" class="form-control" placeholder="your name" name="name")
+					input(type="text" class="form-control" placeholder="your job" name="job")
+					input(type="text" id="email" class="form-control" placeholder="your email address" name="email")
+					input(type="password" class="form-control" placeholder="password" name="password")
+					input(type="password" class="form-control" placeholder="password confirmation" name="confirmation")
+					input(type="submit" id="send_email" class="btn btn-lg btn-primary btn-block" value="Create Acount")
+					p By clicking "Create Acount", you agree to our terms of service and privacy policy. We'll occasionally send you account related emails.
+					input(type="hidden", name="_csrf", value=_csrf)
