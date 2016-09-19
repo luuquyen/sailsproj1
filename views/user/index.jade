@@ -1,25 +1,31 @@
-extends ../layout
+extends ../layoutadmin
 block body
-	.container
-		h3 Users
-		table.table
-			tr
-				th ID
-				th Name
-				th Title
-				th Email
-				th
-				th
-				th
-			- each user in users
-				tr(data-id=user.id data-models="user")
-					td= user.id
-					td= user.name
-					td= user.title
-					td= user.email
-					td
-						a(href='/user/show/'+user.id class="btn btn-sn btn-primary") Show
-					td
-						a(href="/user/edit/"+user.id class="btn btn-sn btn-warning") Edit
-					td
-						a(href="/user/destroy/"+user.id class="btn btn-sn btn-danger") Delete
+	h3 Users
+	table.table
+		tr
+			th ID
+			th Name
+			th Job
+			th Email
+			th Active
+			th Admin
+			th
+			th
+			th
+		- each user in users
+			tr(data-id=user.id data-models="user")
+				td= user.id
+				td= user.name
+				td= user.job
+				td= user.email
+				td= user.active
+				if (user.admin) 
+					td true
+				else
+					td false
+				td
+					a(href='/user/show/'+user.id class="btn btn-sn btn-primary") Show
+				td
+					a(href="/user/edit/"+user.id class="btn btn-sn btn-warning") Edit
+				td
+					a(href="/user/destroy/"+user.id class="btn btn-sn btn-danger") Delete

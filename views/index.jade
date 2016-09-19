@@ -1,46 +1,6 @@
 extends ./layout
 
 block body
-	nav.navbar.navbar-default(role='navigation')
-			.container
-				.container-fluid
-					// Brand and toggle get grouped for better mobile display
-					.navbar-header
-						button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-							span.sr-only Toggle navigation
-							span.icon-bar
-							span.icon-bar
-							span.icon-bar
-						a.navbar-brand(href="/") Hotdeal.vn
-					// Collect the nav links, forms, and other content for toggling
-					#bs-example-navbar-collapse-1.collapse.navbar-collapse
-						ul.nav.navbar-nav
-							li.active
-								a(href='#') Link
-							li
-								a(href='#') Link
-							li.dropdown
-								a.dropdown-toggle(href='#', data-toggle='dropdown')
-									| Link 
-									span.caret
-								ul.dropdown-menu
-									li
-										a(href='#') Link
-									li
-										a(href='#') Link
-									li
-										a(href='#') Link
-									li.divider
-									li
-										a(href='#') Link
-									li.divider
-									li
-										a(href='#') One more separated link
-						form.navbar-form(role='search')
-							.form-group
-								input.form-control(type='text', placeholder='Search')
-							a.btn.btn-default(href="/session/new/" ) Sign in
-							a.btn.btn-primary(href="/user/new/") Sign up
 	.container
 		.row
 			.col-md-8

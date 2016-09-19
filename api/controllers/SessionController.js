@@ -27,12 +27,15 @@ module.exports = {
 			bcrypt.compare(req.param('password'), user.encryptedPassword, function (err, valid) {
 				if (err) return next(err);
 				if (!valid) return next('Invalid');
-				if (valid && user.active == true) {
+
+				if (user.active == true) {
 
 					req.session.authenticated = true;
 					req.session.User = user;
+					req.session.userSession = user;
 
-					res.redirect('/user/show/'+user.id);
+
+					res.redirect('/user/admin/' + user.id);
 				}
 				else {
 						res.end('Your acount is not confir');

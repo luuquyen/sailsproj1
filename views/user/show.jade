@@ -1,7 +1,9 @@
-extends ../layout
+extends ../layoutadmin
 block body
 	.container
 		h1= user.name
+		if (user.admin)
+			h2 Admin
 		h3= user.title
 		hr
 		h3 count:

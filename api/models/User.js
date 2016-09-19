@@ -26,6 +26,11 @@ module.exports = {
   		unique: true
   	},
 
+    admin: {
+      type: 'boolean',
+      defaultsTo: false
+    },
+
     password: {
       type:'string'
     },
@@ -46,6 +51,11 @@ module.exports = {
   	encryptedPassword: {
   		type: 'string'
   	},
+
+    cate: {
+      collection: 'cate',
+      via: 'owner'
+    },
     
     toJSON: function () {
       var obj = this.toObject();

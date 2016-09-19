@@ -62,14 +62,13 @@ module.exports = {
 						return;
 					}
 					console.log(updated);
-					res.end('actived');
+					res.redirect('/session/new/');
 				});
 		});
 	},
 
-	// render the profile view {/views/show.jade}
-	show: function (req, res, next) {
-		User.findOne(req.param('id'), function foundUser(err, user) {
+	admin: function (req, res, next) {
+		User.findOne(req.param('id'), function (err, user) {
 			if (err) return next(err);
 			if (!user) return next(err);
 			res.view({
@@ -77,6 +76,8 @@ module.exports = {
 			});
 		});
 	},
+
+	// render the profile view {/views/show.jade}
 
 	index: function (req, res, next) {
 		// Get an array of all users in the User conlooection(e.g. table)
@@ -87,6 +88,16 @@ module.exports = {
 				users: users
 			});  
 		}); 
+	},
+	show: function (req, res, next) {
+
+		User.findOne(req.param('id'), function foundUser(err, user) {
+			if (err) return next(err);
+			if (!user) return next('user is not exist');
+			res.view({
+				user: user
+			})
+		}) 
 	},
 	edit: function (req, res, next) {
 

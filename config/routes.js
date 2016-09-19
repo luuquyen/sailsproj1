@@ -34,11 +34,8 @@ module.exports.routes = {
 
 	'/': {
 		view: 'index'
-	},
-	'/admin': {
-		view: 'user/admin'
 	}
-	
+
 	/***************************************************************************
 	*                                                                          *
 	* Custom routes here...                                                    *

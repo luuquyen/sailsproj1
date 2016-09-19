@@ -3,10 +3,11 @@ extends ../layout
 block body
 	.container
 		.form-sign-up
-			form(action="/session/create" method="POST" class="form-signin")
-				h2.form-signin-heading Sign in
-				div 
-					input(type="email" class="form-control" placeholder="your email address" name="email")
-					input(type="password" class="form-control" placeholder="password" name="password")
-					input(type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in")
-				input(type="hidden", name="_csrf", value=_csrf)
+			if (!session.authenticated)
+				form(action="/session/create" method="POST" class="form-signin")
+					h2.form-signin-heading Sign in
+					div 
+						input(type="email" class="form-control" placeholder="your email address" name="email")
+						input(type="password" class="form-control" placeholder="password" name="password")
+						input(type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in")
+					input(type="hidden", name="_csrf", value=_csrf)

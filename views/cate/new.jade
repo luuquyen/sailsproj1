@@ -1,0 +1,11 @@
+extends ../layoutadmin
+block body
+	h2 Category products
+	hr
+	form(action="/cate/create", method="POST")
+		.form-group
+			label Name
+			input.form-control(type="text", name="name", placeholder="Name Category product")
+		.submit-btn
+			button.btn.btn-primary(type="submit") Create
+		input(type="hidden", name="_csrf", value=_csrf)

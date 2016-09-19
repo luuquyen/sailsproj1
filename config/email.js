@@ -7,7 +7,7 @@ module.exports.email = {
 		pass: "tpplinh17"
 	},
 	templateDir: "api/mailTemplates",
-	from: "info@elisoft.com",
+	from: '<Quyen Nguyen>',
 	testMode: false,
 	ssl: true
 }

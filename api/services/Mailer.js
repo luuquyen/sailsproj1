@@ -9,12 +9,12 @@ module.exports.sendWelcomeMail = function(obj) {
 		{
 			verify_token: crypto.createHash('md5').update(obj.id).digest("hex"),
 			link: "http://localhost:1337/user/verify?code=" + verify_token,
-			Name: obj.name			
+			Name: obj.name
 		},
 
 		{
 			to: obj.email,
-			subject: "Welcome Email"
+			subject: "Welcome Email",
 		},
 
 		function (err) {

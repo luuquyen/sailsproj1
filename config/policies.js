@@ -25,8 +25,15 @@ module.exports.policies = {
   * access)                                                                  *
   *                                                                          *
   ***************************************************************************/
-
   '*': true,
+  user: {
+    'new': true,
+    'index': "admin"
+  },
+  cate: {
+    '*': "sessionAuth"
+  }
+
 
   // 'PostController': {
   //   '*': 'isAuthenticated'

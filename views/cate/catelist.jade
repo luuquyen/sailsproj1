@@ -1,0 +1,18 @@
+extends ../layoutadmin
+block body
+	h2 Your category product list
+	hr
+	table
+		tr
+			th Name
+			th
+		if (cateLst.length == 0)
+			tr.text-center.no-cate
+				td(colspan="2") You don't have any categoy product
+		for (var i = 0; i < cateLst.length; i++)
+			tr
+				td #{cateLst[i].name}
+
+				td.submit-btn
+					a.btn.btn-danger(href="/cate/remove/cateLst[i].id") Delete
+					a.btn.btn-warning(href="/cate/edit/cateLst[i].id") Edit

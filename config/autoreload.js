@@ -6,6 +6,7 @@ module.exports.autoreload = {
 		"api/models",
 		"api/controllers",
 		"api/services",
+		"api/policies",
 		"config/locales"
 	],
 	ignored: [
