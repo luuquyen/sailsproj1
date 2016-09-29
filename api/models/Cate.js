@@ -16,6 +16,11 @@ module.exports = {
 
   	owner: {
   		model: 'user'
+  	},
+
+  	detail: {
+  		collection: 'detail',
+  		via: 'owner'
   	}
   }
 };

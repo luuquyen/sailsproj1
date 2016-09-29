@@ -11,13 +11,21 @@ module.exports = {
 		res.view('session/new');
 	},
 
+	'login': function (req,res) {
+		res.view('session/login');
+	},
+
 	create: function (req, res, next) {
-		// Check for email and password in params sent via the form, if none
-		// redirect the brower back to the sign-in form
-		if (!req.param('email') || !req.param('password')) {
-			//return next({err : Password doesnot match password comfirmation})
-			//var usernamePasswordRequiredError = [{name: 'usernamePasswordRequired', message: 'You must enter both email and password.'}]
-			return next(err);
+		//check for email and password in params sent via the form, if none
+		//rediret the browser back to the sign-in form.
+		if (!{email:req.param('email')}|| !{password:req.param('password')})
+		{
+			var emailPasswordRequiredError = [{email: 'emailPasswordRequired', message: 'You must enter both a username and password.'}]
+			req.session.flash = {
+				err: emailPasswordRequiredError
+			}
+			res.redirect('/session/new');
+			return;
 		}
 
 		User.findOne({email:req.param('email')}).exec(function foundUser(err, user) {
@@ -32,13 +40,11 @@ module.exports = {
 
 					req.session.authenticated = true;
 					req.session.User = user;
-					req.session.userSession = user;
-
-
+					
 					res.redirect('/user/admin/' + user.id);
 				}
 				else {
-						res.end('Your acount is not confir');
+						res.view('user/notconfir');
 					}	
 			});
 		});

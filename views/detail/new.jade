@@ -1,0 +1,31 @@
+extends ../layoutadmin
+block body
+	h2 Detail products
+	hr
+	form.form-sign-up(name="newprd" action="/detail/create", method="POST", enctype="multipart/form-data")
+		.form-group
+			label Category product
+			select(name="owner")
+				- each cate in cates
+					option(value= "#{cate.name}") #{cate.name}
+		.form-group
+			label Name
+			input.form-control(type="text", name="nameprd", placeholder="Name product")
+		.form-group
+			label Price(VND)
+			input.form-control(type="text", name="price", placeholder="Price product")
+		.form-group
+			label Image product
+			input(type="file", name="image", id="image_prd_detail")
+		.form-group
+			label Descrice
+			textarea.form-control(name="descrice" rows="3")
+		.form-group
+			label Number
+			input.form-control(type="text", name="number", placeholder="Number product")
+		.form-group
+			label Time (day)
+			input.form-control(type="text", name="time", placeholder="Time count dowm")
+		.submit-btn
+			button.btn.btn-primary(type="submit") Create
+		input(type="hidden", name="_csrf", value=_csrf)

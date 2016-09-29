@@ -1,0 +1,19 @@
+extends ../layoutadmin
+block body
+	.container
+		h2(style="display:inline-block;") Detail product list
+		a(style="display:inline-block;" href="/detail/new" class="btn btn-sn btn-primary")
+			i(class="fa fa-plus" aria-hidden="true")
+				|Detail product	
+		h2 Please choose category products
+
+		form(action="/detail/list/", method="POST", enctype="multipart/form-data")
+
+			select(name="owner")
+				- each cate in cates
+					option(value= "#{cate.name}") #{cate.name}
+
+			button(style="display:inline-block;" class="btn btn-sn btn-primary")
+				i(class="fa fa-plus" aria-hidden="true")
+					|View
+			input(type="hidden", name="_csrf", value=_csrf)

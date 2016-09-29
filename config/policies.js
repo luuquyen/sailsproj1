@@ -32,6 +32,9 @@ module.exports.policies = {
   },
   cate: {
     '*': "sessionAuth"
+  },
+  detail: {
+    '*': "sessionAuth"
   }
 
 

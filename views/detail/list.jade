@@ -1,0 +1,37 @@
+extends ../layoutadmin
+block body
+	h2(style="display:inline-block;") You have #{details.length} product(s)
+	table.table
+		tr
+			th Category
+			th Name
+			th Price
+			th Image
+			th Descrice
+			th Number
+			th
+			th
+			th
+		- each detail in details
+			tr(data-id=detail.id data-models="detail")
+				td= detail.owner
+
+				td= detail.nameprd
+				
+				td= detail.price
+
+				td
+					if (detail.image !== '')
+						img.img-prd(src="#{sails.getBaseurl()}/images/products/#{detail.image}", alt="product")
+						input(type="hidden", value="#{detail.image}", name="image")
+					else 
+						img.img-prd(src="#{sails.getBaseurl()}/images/abc.png", alt="")
+
+				td= detail.descrice
+
+				td= detail.number
+
+				td
+					a(href="/detail/edit/"+detail.id class="btn btn-sn btn-warning editdetail") Edit
+				td
+					a(href="/detail/destroy/"+detail.id id="#{detail.id}" class="btn btn-sn btn-danger") Delete

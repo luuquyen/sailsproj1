@@ -1,0 +1,26 @@
+extends ../layoutadmin
+block body
+	h2(style="display:inline-block;") Your category product list
+	form(style="float:right;margin-top:20px;" class="form-inline", action="/cate/create", method="POST")
+		.form-group
+			input.form-control(type="text", name="name", placeholder="Name Category product")
+		button(class="btn btn-sn btn-primary")
+			i(class="fa fa-plus" aria-hidden="true")
+				|Category product		
+		input(type="hidden", name="_csrf", value=_csrf)
+		
+	table.table
+		tr
+			th Name
+			th
+			th
+			th
+			th
+		- each cate in cates
+			tr(data-id=cate.id data-models="cate")
+				td= cate.name
+			
+				td
+					a(href="/cate/edit/"+cate.id class="btn btn-sn btn-warning editCate") Edit
+				td
+					a(href="javascript:;" id="#{cate.id}" class="btn btn-sn btn-danger delCate") Delete

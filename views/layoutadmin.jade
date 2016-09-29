@@ -31,7 +31,9 @@ html
 
 		// STYLES
 		link(rel="stylesheet", href="/styles/css/bootstrap.min.css")
+		link(rel="stylesheet", href="/styles/css/custom.css")
 		link(rel="stylesheet", href="/styles/css/font-awesome.min.css")
+		link(rel="stylesheet", href="/styles/css/main.css")
 		link(rel="stylesheet", href="/styles/css/morris.css")
 		link(rel="stylesheet", href="/styles/css/sb-admin-rtl.css")
 		link(rel="stylesheet", href="/styles/css/sb-admin.css")
@@ -50,7 +52,8 @@ html
 							span.icon-bar
 							span.icon-bar
 							span.icon-bar
-						a.navbar-brand(href='/user/admin/'+session.User.id) SB Admin
+						if (session.authenticated)
+							a.navbar-brand(href='/user/admin/'+session.User.id) SB Admin
 					// Top Menu Items
 					ul.nav.navbar-right.top-nav
 						li.dropdown
@@ -131,14 +134,20 @@ html
 						li.dropdown
 							if (session.authenticated)
 								a.dropdown-toggle(href='/user/show/'+session.User.id, data-toggle='dropdown')
-									i.fa.fa-user
+									.img-avatar.pull-left
+										if (session.User.avatar !== '')
+											img.img-circle.img-avatar(src="#{sails.getBaseurl()}/images/avatar/#{session.User.avatar}", alt="Avatar")
+											input(type="hidden", value="#{session.User.avatar}", name="avatar")
+										else 
+											img.img-circle.img-avatar(src="#{sails.getBaseurl()}/images/abc.png", alt="")
 									| #{session.User.name}
 									b.caret
 							ul.dropdown-menu
 								li
-									a(href='/user/show/'+session.User.id)
-										i.fa.fa-fw.fa-user
-										|  Profile
+									if (session.authenticated)
+										a(href='/user/show/'+session.User.id)
+											i.fa.fa-fw.fa-user
+											|  Profile
 								li
 									a(href='#')
 										i.fa.fa-fw.fa-envelope
@@ -157,24 +166,25 @@ html
 					.collapse.navbar-collapse.navbar-ex1-collapse
 						ul.nav.navbar-nav.side-nav
 							li.active
-								a(href='/user/admin/'+session.User.id)
-									i.fa.fa-fw.fa-dashboard
-									|  Dashboard
+								if (session.authenticated)
+									a(href='/user/admin/'+session.User.id)
+										i.fa.fa-fw.fa-dashboard
+										|  Dashboard
 							if (session.authenticated && session.User.admin)
 								li
 									a(href='/user/')
 										i.fa.fa-fw.fa-users
 										|  Users
 							li
-								a(href='/cate/new')
+								a(href='/cate')
 									i.fa.fa-fw.fa-tasks
-									|  Category
+									|  Category products
 							li
-								a(href='forms.html')
+								a(href='/detail')
 									i.fa.fa-fw.fa-edit
-									|  Detail
+									|  Detail products
 							li
-								a(href='bootstrap-elements.html')
+								a(href='/order')
 									i.fa.fa-fw.fa-shopping-cart
 									|  Order
 					// /.navbar-collapse

@@ -11,35 +11,64 @@ module.exports = {
 		res.view();
 	},
 
-	create: function (req, res, next) {
+	'checkmail': function (req,res) {
+		res.view('user/checkmail');
+	},
 
-		// Create a User with the params sent from
-		// the sign-up form --> new.jade
-		User.create(req.params.all(), function userCreate(err, user) {
-			
-			//If there's an error
-			// if (err) return next(err);
-			if (err) return next(err);
+	create: function(req,res,next) {
+		User.create(req.params.all(), function(err,user) {
+			if(err) {
+				console.log(err);
+				return res.redirect('/user/new');
+			}
+			if(!user){
+				return next('User not exit');
+			}
+			if(user){
+				// Upload avatar
+				req.file('avatar').upload({
+					dirname: '../../assets/images/avatar',
+					maxByte: 10000000,
+					saveAs: function(file, cb) {
+						var d = new Date();
+						var allowExts = ['png', 'gif', 'jpeg', 'jpg'];
+						var fExt = file.filename.split('.');
 
-			if (!user) return next('user is not exist');
-			
-			if (user) {
-				var verify_token = crypto.createHash('md5').update(user.id).digest("hex");
-				User.update({id:user.id},{verify:verify_token}).exec(function afterwards(err, updated){
+						if (allowExts.indexOf(fExt[1]) === -1) {
+							return res.badRequest('File not supported.');
+						} else {
+							cb(null, file.filename);
+						}
 
-					if (err) {
-					// handle error here- e.g. `res.serverError(err);`
-						next(err);
-						return;
 					}
-					console.log(updated);
+				}, function upfile(err, avatarImg) {
+					if (err) return res.send(404, 'File error');
+
+					if (avatarImg.length == 0) {
+						return res.view('layoutadmin', {
+							user: user
+						});
+					} else {
+						var filePath = avatarImg[0].filename;
+						var verify_token = crypto.createHash('md5').update(user.id).digest('hex');
+						User.update({
+							id: user.id
+							}, {
+							avatar: filePath,
+							verify:verify_token
+							}).exec(function(err, updated) {
+							if (err) {
+								next(err);
+								return;
+							} 
+						});
+					}
 				});
 
 				Mailer.sendWelcomeMail(user);
-				res.end('check email');
-				console.log('active');
+				res.redirect('/user/checkmail');
 			}
-		}); 
+		});
 	},
 
 	verify: function (req, res, next) {
@@ -54,15 +83,14 @@ module.exports = {
 				User.update({id:user.id},{
 											verify: '', 
 											active: true
-										}).exec(function afterwards(err, updated){
+										}).exec(function afterwards(err, update){
 
 					if (err) {
 					// handle error here- e.g. `res.serverError(err);`
 						next(err);
 						return;
 					}
-					console.log(updated);
-					res.redirect('/session/new/');
+					return res.view('session/login', {user: user});
 				});
 		});
 	},
@@ -77,8 +105,6 @@ module.exports = {
 		});
 	},
 
-	// render the profile view {/views/show.jade}
-
 	index: function (req, res, next) {
 		// Get an array of all users in the User conlooection(e.g. table)
 		User.find(function foundUsers(err, users) {
@@ -89,6 +115,8 @@ module.exports = {
 			});  
 		}); 
 	},
+
+	// render the profile view {/views/show.jade}
 	show: function (req, res, next) {
 
 		User.findOne(req.param('id'), function foundUser(err, user) {
@@ -99,6 +127,7 @@ module.exports = {
 			})
 		}) 
 	},
+
 	edit: function (req, res, next) {
 
 		User.findOne(req.param('id'), function foundUser(err, user) {
@@ -109,6 +138,7 @@ module.exports = {
 			})
 		}) 
 	},
+
 	update: function (req, res, next) {
 		User.update(req.param('id'), req.params.all(), function userUpdate (err) {
 			if (err) {
@@ -117,6 +147,7 @@ module.exports = {
 			res.redirect('/user/show/'+ req.param('id'));
 		});
 	},
+
 	destroy: function (req, res, next) {
 		User.findOne(req.param('id'), function foundUser (err,user) {
 			if (err) return next(err);
