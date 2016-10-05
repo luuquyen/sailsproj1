@@ -1,3 +1,6 @@
+block vars
+	-title="Product list Hotdeal.vn"
+
 extends ../layoutadmin
 block body
 	h2(style="display:inline-block;") You have #{details.length} product(s)
@@ -22,10 +25,10 @@ block body
 
 				td
 					if (detail.image !== '')
-						img.img-prd(src="#{sails.getBaseurl()}/images/products/#{detail.image}", alt="product")
+						img.img-avatar(src="#{sails.getBaseurl()}/images/products/#{detail.image}", alt="product")
 						input(type="hidden", value="#{detail.image}", name="image")
 					else 
-						img.img-prd(src="#{sails.getBaseurl()}/images/abc.png", alt="")
+						img.img-avatar(src="#{sails.getBaseurl()}/images/abc.png", alt="")
 
 				td= detail.descrice
 

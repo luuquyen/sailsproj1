@@ -1,3 +1,5 @@
+block vars
+	-title="Detail product Hotdeal.vn"
 extends ../layoutadmin
 block body
 	h2 Detail products
@@ -15,8 +17,6 @@ block body
 			if (detail.image !== '')
 				img.img-prd(src="#{sails.getBaseurl()}/images/products/#{detail.image}", alt="product")
 				input(type="hidden", value="#{detail.image}", name="image")
-			else 
-				img.img-prd(src="#{sails.getBaseurl()}/images/abc.png", alt="")
 			input(type="file", name="prdUpdate", id="image_prd_detail")
 		.form-group
 			label Descrice

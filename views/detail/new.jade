@@ -1,3 +1,6 @@
+block vars
+	-title="Create product Hotdeal.vn"
+
 extends ../layoutadmin
 block body
 	h2 Detail products
@@ -24,8 +27,8 @@ block body
 			label Number
 			input.form-control(type="text", name="number", placeholder="Number product")
 		.form-group
-			label Time (day)
-			input.form-control(type="text", name="time", placeholder="Time count dowm")
+			label Date deadline (YYYY/MM/DD hh:mm:ss)
+			input.form-control(type="text", name="dateOff", placeholder="Time count dowm")
 		.submit-btn
 			button.btn.btn-primary(type="submit") Create
 		input(type="hidden", name="_csrf", value=_csrf)

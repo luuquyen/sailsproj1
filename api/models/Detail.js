@@ -31,7 +31,9 @@ module.exports = {
     cateprd: {
       type: 'string',
     },
-    
+    dateOff: {
+      type: 'datetime'
+    },
   	owner: {
   		model: 'cate'
   	}
