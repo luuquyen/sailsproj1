@@ -12,8 +12,8 @@ block body
 		form(action="/detail/list/", method="POST", enctype="multipart/form-data")
 
 			select(name="owner")
-				- each cate in cates
-					option(value= "#{cate.name}") #{cate.name}
+				- each cate in data[0]
+					option(value= "#{cate.id}") #{cate.name}
 
 			button(style="display:inline-block;" class="btn btn-sn btn-primary")
 				i(class="fa fa-plus" aria-hidden="true")

@@ -21,18 +21,20 @@ html(class="no-js", lang="en")
 		link(rel="stylesheet", href="/styles/css/bootstrap.min.css")
 		link(rel="stylesheet", href="/styles/css/main.css")
 		link(rel="stylesheet", href="/styles/css/header.css")
+		link(rel="stylesheet", href="/styles/css/footer.css")
 		//--script(src="js/modernizr.js")
 	body
 		include ../includes/header.jade
 		section.main
 			block main
 		include ../includes/footer.jade
-		include ../includes/scripts.jade
 
 	// SCRIPTS
 	script(src="/js/dependencies/sails.io.js")
 	script(src="/js/dependencies/aajquery.js")
 	script(src="/js/dependencies/bootstrap.min.js")
+	script(src="/js/dependencies/jquery.countdown.js")
+	script(src="/js/dependencies/jquery.countdown.min.js")
 	script(src="/js/dependencies/raphael.min.js")
 	script(src="/js/dependencies/start.js")
 	// SCRIPTS END

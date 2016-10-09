@@ -4,7 +4,7 @@
  * @description :: Server-side logic for managing details
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-
+var async = require('async');
 module.exports = {
 	
 	new: function (req, res) {
@@ -18,13 +18,22 @@ module.exports = {
 	},
 
 	index: function (req, res, next) {
-		
 
-		Cate.find(function (err, cates) {
-			if (err) return next(err);
-			
+		async.parallel([
+			function(callback) {
+				Cate.find(function (err, cates) {
+					callback(null, cates);
+				});
+			},
+			function(callback) {
+				Detail.find(function (err, details) {
+					callback(null, details);
+				});
+			}
+		],//option callback
+		function(err, results){
 			res.view({
-				cates: cates
+				data: results
 			});
 		});
 	},
@@ -76,6 +85,7 @@ module.exports = {
 					});
 				}
 			});
+			
 			res.redirect('/detail');
 		});
 	},
@@ -105,9 +115,9 @@ module.exports = {
 
 	list: function (req, res, next) {
 		console.log(req.param('owner'));
-
-		Detail.find({owner: req.param('owner')}
-			).exec(function(err, details){
+		Detail.find({
+			owner: req.param('owner')
+		}).populate('owner').exec(function(err, details){
 			if (err) return next(err);
 		
 			res.view({

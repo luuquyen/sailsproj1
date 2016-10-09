@@ -1,16 +1,43 @@
 block vars
 	-title="Hotdeal.vn"
 extends layouts/layout
-block main	
+block main  
 	.hm-sec-blk
 		.container
-			- each detail in data[1]
-					.col-prd-itm
-						a(href="javascripy:;")
-							if (detail.image !== '')
-								img.img-prd(src="#{sails.getBaseurl()}/images/products/#{detail.image}", alt="product")
-								input(type="hidden", value="#{detail.image}", name="image")
-							p.txt-name-prd #{detail.nameprd}
-						p 
-							span.txt-new-price #{detail.price}
-							
+			ul.main-menu.clearfix
+				li.had-child
+					a(href="javascript:;") Danh mục sản phẩm+
+					.sub-menu
+						ul
+							- each cate in results[0]
+								li
+									a(href="/category/?id=#{cate.id}") #{cate.name}
+			-for (var i = 0; i < results[0].length; i++)
+				.prd-itm-blk
+					h1.prd-title #{results[0][i].name}
+					if (results[0][i].details.length === 0)
+						h3 Bạn chưa có sản phẩm nào thuộc nhóm này
+					else
+						.row
+							-for (var j = 0; j < results[0][i].details.length; j++)
+								.col-md-3
+									.prd-itm
+										a(href="/deal?id=#{results[0][i].details[j].id}")
+											if (results[0][i].details[j].id)
+												img.img-prd(src="#{sails.getBaseurl()}/images/products/#{results[0][i].details[j].image}", alt="product")
+												input(type="hidden", value="#{results[0][i].details[j].image}", name="image")
+											p.txt-name-prd #{results[0][i].details[j].nameprd}
+											p.txt-new-price
+												span #{results[0][i].details[j].price}
+												sup đ
+											.itm-meta
+												.time-off
+													span Con
+													span(class="countime-down" data-time="#{results[0][i].details[j].dateOff}")
+												.btn-buy-now
+													span Mua ngay
+						.full-prd
+							a.btn.btn-primary(href="/category/?id=#{results[0][i].id}") 
+								| Hiển thị tất cả #{results[0][i].name}
+								span
+									i(class="fa fa-caret-right")

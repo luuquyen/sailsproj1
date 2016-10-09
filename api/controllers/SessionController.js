@@ -24,17 +24,16 @@ module.exports = {
 			req.session.flash = {
 				err: emailPasswordRequiredError
 			}
-			res.redirect('/session/new');
-			return;
+			return next('Error: Not request email or password');
 		}
 
 		User.findOne({email:req.param('email')}).exec(function foundUser(err, user) {
 			if (err) return next(err);
-			if (!user) return next('user is not exist');
+			if (!user) return next('Error: user is not exist');
 
 			bcrypt.compare(req.param('password'), user.encryptedPassword, function (err, valid) {
 				if (err) return next(err);
-				if (!valid) return next('Invalid');
+				if (!valid) return next('Error: Password incorrect');
 
 				if (user.active == true) {
 

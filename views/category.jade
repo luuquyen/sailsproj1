@@ -1,217 +1,30 @@
 block vars
-	-title="Categories Smartphone"
+	-title="Categories Hotdeal"
 extends layouts/layout
 block main
 	.hm-sec-blk
 		.prd-info-blk
 			.container
-				.nav-info-ct.clearfix
-					.nav-info-left.f-l
-						ul
-							li.ico-home
-								a(href="index.html")
-									img(alt=" " src="images/ico-home.png")
-							li
-								a(href="#")
-									|Điện thoại
-							li.had-dropdown
-								a(href="#" data-toggle="dropdown").nav-info-itm
-									|Hãng điện thoại
-								ul.dropdown-menu
-									li.drop
-										a(href="category.html")
-											|Samsung
-									li.drop
-										a(href="category.html")
-											|iPhone
-									li.drop
-										a(href="category.html")
-											|Asus
-									li.drop
-										a(href="category.html")
-											|Nokia
-							li.had-dropdown.last-child
-								a(href="#" data-toggle="dropdown").nav-info-itm
-									|Mức giá
-								//- ul.dropdown-menu
-								//- 	li.drop
-								//- 		a(href="category.html")
-								//- 			|Dưới 1 triệu
-								//- 	li.drop
-								//- 		a(href="category.html")
-								//- 			|Dưới 2 triệu
-								//- 	li.drop
-								//- 		a(href="category.html")
-								//- 			|Dưới 3 triệu
-								//- 	li.drop
-								//- 		a(href="category.html")
-								//- 			|Dưới 5 triệu
-								//- 	li.drop
-								//- 		a(href="category.html")
-								//- 			|Dưới  triệu
-					.nav-info-right.f-r
-						li
-							a(href="#").nav-info-itm
-								img(alt=" " src="images/ico-sort.png")
-						li.had-dropdown
-							|Xếp theo: 
-							a(href="#").nav-info-itm
-								b  Hàng mới về
-				.find-quick
-					img(alt=" " src="images/ico-tags-find.png")
-					b Tìm nhanh
-					a(href="#").find-now
-						|Samsung
-					a(href="#").find-now
-						|Nokia
-					a(href="#").find-now
-						|Apple (iPhone)
-					a(href="#").find-now
-						|SonyOPPO  
-					a(href="#").find-now
-						|Dưới 1 tr  
-					a(href="#").find-now
-						|Dưới 2 tr 
-					a(href="#").find-now
-						|Dưới 3 tr 
-					a(href="#").find-now
-						|Dưới 5 tr
-					a(href="#").find-now
-						|Dưới 8 tr
-	.hm-sec-blk
-		.img-hot-prd
-			.container
-				.row
-					.col-md-6
-						figure
-							a(href="#")
-								img(alt=" " src="images/cate-lenovok3note.jpg")
-							a(href="#").view-now
-								|Xem ngay >
-					.col-md-6
-						figure
-							a(href="#")
-								img(alt=" " src="images/cate_lumia950_bg.jpg")
-							a(href="#").view-now
-								|Xem ngay >
-	.hm-sec-blk
-		.container
-			ul(class="nav nav-tabs" role="tablist")
-				li(role="presentation" class="active")
-					a(href="#tablet" role="tab" data-toggle="tab")
-						|IPHONE
-			div(class="tab-content tab-blk")
-				div(role="tabpanel" class="tab-pane active" id="tablet")
-					a(href="category.html").view-all
-						p Xem tất cả các sản phẩm iPhone &rsaquo;
-					.tab-prd.prd-img-blk
-						.col-prd-itm
-							a(href="detail.html")
-								img(alt=" " src="images/asus.png")
-								p.txt-name-prd Sony Xperia M4 Aqua Dual
-							p 
-								span.txt-new-price 6.490.000 đ 
-								span.txt-old-price 6.790.000 đ
-							span.promo.promo-dec-price
-						.col-prd-itm
-							a(href="detail.html")
-								img(alt=" " src="images/blackberry-classic11.png")
-								p.txt-name-prd Blackberry classic 11
-							p 
-								span.txt-new-price 6.490.000 đ 
-								span.txt-old-price 6.790.000 đ
-							span.promo.promo-new
-						.col-prd-itm
-							a(href="detail.html")
-								img(alt=" " src="images/samsung-galaxy-e5.png")
-								p.txt-name-prd Samsung Galaxy E5
-							p 
-								span.txt-new-price 6.490.000 đ 
-								span.txt-old-price 6.790.000 đ
-							span.promo.promo-hot
-						.col-prd-itm
-							a(href="detail.html")
-								img(alt=" " src="images/samsung-galaxy-note5.png")
-								p.txt-name-prd Samsung Galaxy Note5
-							p 
-								span.txt-new-price 6.490.000 đ 
-								span.txt-old-price 6.790.000 đ
-							span.box-present
-								<i class="fa fa-gift" aria-hidden="true"></i>
-								|CÓ QUÀ
-						.col-prd-itm
-							a(href="detail.html")
-								img(alt=" " src="images/iphone6-plus.png")
-								p.txt-name-prd Iphone6 Plus
-							p 
-								span.txt-new-price 6.490.000 đ 
-								span.txt-old-price 6.790.000 đ
-	.hm-sec-blk
-		.container
-			ul(class="nav nav-tabs" role="tablist")
-				li(role="presentation" class="active")
-					a(href="#tablet" role="tab" data-toggle="tab")
-						|SAMSUNG
-			div(class="tab-content tab-blk")
-				div(role="tabpanel" class="tab-pane active" id="tablet")
-					a(href="category.html").view-all
-						p Xem tất cả các sản phẩm Samsung &rsaquo;
-					.tab-prd.prd-img-blk
-						.col-prd-itm
-							a(href="detail.html")
-								img(alt=" " src="images/asus.png")
-								p.txt-name-prd Sony Xperia M4 Aqua Dual
-							p 
-								span.txt-new-price 6.490.000 đ 
-								span.txt-old-price 6.790.000 đ
-							span.promo.promo-dec-price
-						.col-prd-itm
-							a(href="detail.html")
-								img(alt=" " src="images/blackberry-classic11.png")
-								p.txt-name-prd Blackberry classic 11
-							p 
-								span.txt-new-price 6.490.000 đ 
-								span.txt-old-price 6.790.000 đ
-							span.promo.promo-new
-						.col-prd-itm
-							a(href="detail.html")
-								img(alt=" " src="images/samsung-galaxy-e5.png")
-								p.txt-name-prd Samsung Galaxy E5
-							p 
-								span.txt-new-price 6.490.000 đ 
-								span.txt-old-price 6.790.000 đ
-							span.promo.promo-hot
-						.col-prd-itm
-							a(href="detail.html")
-								img(alt=" " src="images/samsung-galaxy-note5.png")
-								p.txt-name-prd Samsung Galaxy Note5
-							p 
-								span.txt-new-price 6.490.000 đ 
-								span.txt-old-price 6.790.000 đ
-							span.box-present
-								<i class="fa fa-gift" aria-hidden="true"></i>
-								|CÓ QUÀ
-						.col-prd-itm
-							a(href="detail.html")
-								img(alt=" " src="images/iphone6-plus.png")
-								p.txt-name-prd Iphone6 Plus
-							p 
-								span.txt-new-price 6.490.000 đ 
-								span.txt-old-price 6.790.000 đ
-	.hm-sec-blk
-		.registy-blk 
-			.container
-				.row
-					.col-md-9
-						p.txt-regis-title 
-							|ĐĂNG KÍ NHẬN TIN KHUYẾN MÃI TỪ 
-							span.txt-logo 365MOBILE.VN
-						p Nếu bạn có thắc mắc, vui lòng liên hệ 
-							b HOTLINE: 0979.365.365 
-							|để được hỗ trợ tốt nhất từ 365mobile
-						.form-regis
-							input(type="input" id="name-cus" name="name-cus" class="input-customer-info" placeholder="Tên quý khách")
-							input(type="input" id="email-cus" name="email-cus" class="input-customer-info" placeholder="Email nhận tin")
-							button(type="submit" class="btn-regis")
-								|ĐĂNG KÝ NHẬN TIN
-					.col-md-3
+				.prd-itm-blk
+					h2.prd-title #{results[2].name}
+					if (results[1].length === 0)
+						h3 Bạn chưa có sản phẩm nào thuộc nhóm này
+					else
+						.row
+							-for (var i = 0; i < results[1].length; i++)	
+								.col-md-3
+									.prd-itm
+										a(href="#")
+											if (results[1][i].image)
+												img.img-prd(src="#{sails.getBaseurl()}/images/products/#{results[1][i].image}", alt="product")
+												input(type="hidden", value="#{results[1][i].image}", name="image")
+											p.txt-name-prd #{results[1][i].nameprd}
+											p.txt-new-price
+												span #{results[1][i].price}
+												sup đ
+											.itm-meta
+												.time-off
+													span Con
+													span(class="countime-down" data-time="#{results[1][i].dateOff}")
+												.btn-buy-now
+													span Mua ngay

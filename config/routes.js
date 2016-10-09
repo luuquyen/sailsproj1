@@ -33,7 +33,9 @@ module.exports.routes = {
 	***************************************************************************/
 
 	// '/': 'HomeController.findCate'
-	'/': 'HomeController.findDB'
+	'/': 'HomeController.findDB',
+	'/category/*': 'HomeController.category',
+	'/deal': 'HomeController.deal'
 
 	/***************************************************************************
 	*                                                                          *

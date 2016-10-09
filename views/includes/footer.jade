@@ -1,73 +1,79 @@
-//- .about-us-blk
-//- 	.container
-//- 		.about-us-itm
-//- 			.ct-info
-//- 				.row
-//- 					.col-md-5
-//- 						.hot-line-ft
-//- 							b.txt-hotline HOTLINE
-//- 							p
-//- 								img(src="images/ico-phone.png")
-//- 								span.txt-phone-num 1900 2074
-//- 						.sys-store
-//- 							p.txt-info-title Hệ THỐNG CỬA HÀNG 365MOBILE
-//- 							p TP Hà Nội, 62 Văn Cao, P. Liễu Giai, Q. Ba Đình - (04) 66.809.386
-//- 							p TP. HCM - 185 Nguyễn Thiện Thuật, P1, Q.3 - (08) 66.760.513
-//- 							p TP.HCM - 87 Xô Viết Nghệ Tĩnh, P17, Q. Bình Thạnh -  (08) 66.769.513
-//- 					.col-md-3
-//- 						p.txt-info-title CHÍNH SÁCH QUY ĐỊNH
-//- 						a(href="#")
-//- 							p Chính sách & quy định chung
-//- 						a(href="#")
-//- 							p Chính sách vận chuyển, giao nhận
-//- 						a(href="#")
-//- 							p Chính sách đổi trả hàng và hoàn tiền
-//- 						a(href="#")
-//- 							p Chính sách bảo mật thông tin
-//- 					.col-md-4
-//- 						.box-info
-//- 							.ic-chk.f-l
-//- 								img(src="images/logo-footer.png")
-//- 							.txt-chk
-//- 								p KIỂM TRA THÔNG TIN
-//- 								b BẢO HÀNH SẢN PHẨM ĐÃ MUA
-//- 						p MIỄN PHÍ CHARGE THẺ KHI MUA HÀNG
-//- 						p.ic-payment 
-//- 							img(src="images/ic_payment1.png")
-//- 							img(src="images/ic_payment2.png")
-//- 							img(src="images/ic_payment3.png")
-//- 			.nav-info
-//- 				ul
-//- 					li
-//- 						a(href="#")
-//- 							|Trang chủ
-//- 					li
-//- 						a(href="#")
-//- 							|Tin tức
-//- 					li
-//- 						a(href="#")
-//- 							|Giới thiệu
-//- 					li
-//- 						a(href="#")
-//- 							|Bảng giá
-//- 					li
-//- 						a(href="#")
-//- 							|Bảng đồ 
-//- 					li
-//- 						a(href="#")
-//- 							|Liên hệ
+#bottom
+	.container
+		.row
+			.col-md-4
+				#latest-tweet
+					h4.title-bt QUICK LINKS
+					ul.link-text
+						li
+							a(href='#') Link Text Here
+						li
+							a(href='#') Link Text Here
+						li
+							a(href='#') Link Text Here
+						li
+							a(href='#') Link Text Here
+						li
+							a(href='#') Link Text Here
+						li
+							a(href='#') Link Text Here
+			// END .col-md-4 #link
+			.col-md-4
+				#contact-us
+					h4.title-bt CONTACT US
+					p
+						|Company Name
+						br
+						|Street Name & Number
+						br
+						|Town
+						br
+						|Postcode/Zip
+						br
+						br
+						|Tel:
+						br
+						|xxxxx xxxxxxxxxx
+						br
+						br
+						|Fax:
+						br
+						|xxxxx xxxxxxxxxx
+						br
+						br
+						|Email:
+						br
+						|contact@mydomain.com
+			// END .col-md-4 #contact-us
+			.col-md-4
+				#socialise
+					h4.title-bt SOCIALISE
+					ul.link-socialise
+						li
+							a(href='#')
+								img(src='#{sails.getBaseurl()}/images/linked-in.png')
+								| LinkedIn
+						li
+							a(href='#')
+								img(src='#{sails.getBaseurl()}/images/twitter.png')
+								| Twitter
+						li
+							a(href='#')
+								img(src='#{sails.getBaseurl()}/images/pinterest.png')
+								| Pinterest
+						li
+							a(href='#')
+								img(src='#{sails.getBaseurl()}/images/rss-fed.png')
+								| RSS Feed
+			// END .col-md-4 #socialise
+	// END .row #bottom
 
-//- footer
-//- 	.container
-//- 		.footer-ct
-//- 				p.txt-ft-title 
-//- 					span 365 MOBILE.
-//- 					|SẢN PHẨM UY TÍN TẬN TÂM PHỤC VỤ
-//- 				.row.txt-ft-ct
-//- 					.col-md-5
-//- 						p CÔNG TY TNHH THƯƠNG MẠI VÀ KỸ THUẬT AN NGUYÊN
-//- 						p GPKD/MST số: 0311189894 do Sở KHĐT TP. HCM cấp ngày 27/09/2011.
-//- 					.col-md-7
-//- 						p Địa chỉ: 185 Nguyễn Thiện Thuật, P.1, Q.3, TP. Hồ Chí Minh&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Tel: 08.66.760.513 - 08.66.825.365. 
-//- 						p Website: 365mobile.vn&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Email: Lienhe.365Mobile@gmail.com
-//- 				p.copyright Copyright © 2009 - 2015 . 365Mobile.vn
+footer
+	.footer-blk
+		.container
+			.row
+				.col-md-9
+					p Copyright © 2016 Hotdeal.vn - All Rights Reserved
+				.col-md-3
+					p Create by Quyen Nguyen
+// END footer

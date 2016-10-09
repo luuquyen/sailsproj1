@@ -1,0 +1,27 @@
+block vars
+	-title="Order Hotdeal.vn"
+
+extends ../layoutadmin
+block body
+	h2(style="display:inline-block;") Your order product list
+		
+	table.table
+		tr
+			th Name product
+			th Price
+			th Name order
+			th Phone order
+			th Email order
+			th Address order
+			th
+		- each order in orders
+			tr(data-id=order.id data-models="order")
+				td= order.nameprd
+				td= order.price
+				td= order.nameOrder
+				td= order.phoneOrder
+				td= order.emailOrder
+				td #{order.houseOder} #{order.streetOder} #{order.wardOder} #{order.districtOder} #{order.cityOder}
+				td
+					a(href="/order/destroy/"+order.id class="btn btn-sn btn-danger") Delete
+				

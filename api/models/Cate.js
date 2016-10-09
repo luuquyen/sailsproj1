@@ -18,7 +18,7 @@ module.exports = {
   		model: 'user'
   	},
 
-  	detail: {
+  	details: {
   		collection: 'detail',
   		via: 'owner'
   	}

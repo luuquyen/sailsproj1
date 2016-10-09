@@ -10,16 +10,15 @@ module.exports = {
 	'new': function (req,res) {
 		res.view();
 	},
-
 	'checkmail': function (req,res) {
 		res.view('user/checkmail');
 	},
 
 	create: function(req,res,next) {
+
 		User.create(req.params.all(), function(err,user) {
 			if(err) {
-				console.log(err);
-				return res.redirect('/user/new');
+				return next('Invalid input. Please back and try again');
 			}
 			if(!user){
 				return next('User not exit');
@@ -50,7 +49,7 @@ module.exports = {
 						});
 					} else {
 						var filePath = avatarImg[0].filename;
-						var verify_token = crypto.createHash('md5').update(user.id).digest('hex');
+						var verify_token = crypto.createHash('md5').update(user.id.toString()).digest('hex');
 						User.update({
 							id: user.id
 							}, {

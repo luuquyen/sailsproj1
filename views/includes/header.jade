@@ -16,13 +16,13 @@ header
 							a(href="javascript:;") Danh mục sản phẩm+
 							.sub-menu
 								ul
-									- each cate in data[0]
+									-for (var i = 0; i < results[0].length; i++)
 										li
-											a(href="#") #{cate.name}
+											a(href="/category/?id=#{results[0][i].id}") #{results[0][i].name}
 						li
-							a(href='#') FULL WIDTH
+							a(href='#') Deal mới
 						li.had-child
-							a(href='#') DROPDOWN +
+							a(href='#') Deal bán chạy +
 							.sub-menu
 								ul
 									li
@@ -30,7 +30,7 @@ header
 									li
 										a(href='#') LEFT-RIGHT
 						li
-							a(href='#') PORTFOLIO
+							a(href='#') Deal giá rẻ
 						
 					// END .main-menu
 

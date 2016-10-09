@@ -10,7 +10,7 @@ block body
 			label Category product
 			select(name="owner")
 				- each cate in cates
-					option(value= "#{cate.name}") #{cate.name}
+					option(value= "#{cate.id}") #{cate.name}
 		.form-group
 			label Name
 			input.form-control(type="text", name="nameprd", placeholder="Name product")

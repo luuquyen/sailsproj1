@@ -1,0 +1,71 @@
+/*FOOTER------------------------------------ */
+
+#bottom {
+	padding: 30px 0;
+	background: #eeeeee;
+}
+
+#bottom h2 {
+	font-size: 15px;
+	font-weight: bold;
+	padding: 0 30px 5px 0; 
+}
+#bottom p {
+	display: block;
+	color: #979797;
+	font-size: 15px;
+	text-align: left;
+	font-weight: normal;
+	padding: 15px 45px 0 0;
+}
+#bottom .title-bt {
+	text-align: center;
+	text-transform: uppercase;
+}
+#bottom .link-text {
+	display: block;
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+.link-text {
+	list-style: none;
+}
+
+.link-text > li {
+	padding-right: 30px;
+}
+.link-text > li > a {
+	display: block;
+	margin: 0;
+	padding: 15px 30px 5px 0px;
+	text-decoration: none;
+	border-bottom: 1px solid #666666;
+}
+
+.link-socialise {
+	list-style: none;
+}
+
+.link-socialise > li {
+	padding-right: 45px;
+}
+.link-socialise > li > a {
+	display: block;
+	margin: 0;
+	padding: 15px 0px 5px 0px;
+	text-decoration: none;
+	border-bottom: 1px solid #666666;
+}
+
+.link-socialise img {
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+}
+.footer-blk {
+	margin-left: 0;
+	padding: 15px 0;
+	background: #000;
+	color: #fff;
+}

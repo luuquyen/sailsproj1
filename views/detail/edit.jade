@@ -15,7 +15,7 @@ block body
 		.form-group
 			label Image product
 			if (detail.image !== '')
-				img.img-prd(src="#{sails.getBaseurl()}/images/products/#{detail.image}", alt="product")
+				img.img-avatar(src="#{sails.getBaseurl()}/images/products/#{detail.image}", alt="product")
 				input(type="hidden", value="#{detail.image}", name="image")
 			input(type="file", name="prdUpdate", id="image_prd_detail")
 		.form-group
@@ -25,8 +25,8 @@ block body
 			label Number
 			input.form-control(value="#{detail.number}" type="text", name="number", placeholder="Number product")
 		.form-group
-			label Time (day)
-			input.form-control(value="#{detail.time}" type="text", name="time", placeholder="Time count dowm")
+			label Date deadline (YYYY/MM/DD hh:mm:ss)
+			input.form-control(value="#{detail.dateOff}" type="text", name="dateOff", placeholder="Time count dowm")
 		.submit-btn
 			button.btn.btn-primary(type="submit") Update
 		input(type="hidden", name="_csrf", value=_csrf)

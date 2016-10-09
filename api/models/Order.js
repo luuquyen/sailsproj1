@@ -1,5 +1,5 @@
 /**
- * Detail.js
+ * Order.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -8,7 +8,6 @@
 module.exports = {
 
   attributes: {
-
   	nameprd: {
   		type: 'string',
   		required: true
@@ -17,27 +16,38 @@ module.exports = {
   		type: 'integer',
   		required: true
   	},
-  	image: {
+  	nameOrder: {
   		type: 'string',
-		defaultsTo: ''
+		required: true
   	},
-  	descrice: {
+  	phoneOrder: {
   		type: 'string',
-  		defaultsTo: ''
+  		required: true
   	},
-  	number: {
-  		type: 'integer'
+  	emailOrder: {
+  		type: 'string',
+  		email: true,
+		required: true
   	},
-    dateOff: {
-      type: 'string'
+    houseOrder: {
+      type: 'string',
+		required: true
     },
-  	owner: {
+  	streetOrder: {
   		model: 'cate'
   	},
-    max: {
-      type: 'string',
-      defaultsTo: 7
-    }
+   	wardOrder: {
+  		type: 'string',
+		required: true
+  	},
+  	districtOrder: {
+  		type: 'string',
+		required: true
+  	},
+  	cityOrder: {
+  		type: 'string',
+		required: true
+  	}
   }
 };
 
