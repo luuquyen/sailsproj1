@@ -44,6 +44,36 @@ module.exports = {
 
 			res.redirect('/order/');
 		});
+	},
+
+	tempOder: function (req, res, next) {
+		async.parallel([
+			function(callback) {
+				Cate.find({}).populate('details').exec(function(err, cates){
+					callback(null, cates);
+				});
+			},
+			function(callback) {
+				Detail.find({owner:req.param('id')}).populate('owner').exec(function(err, details){
+					callback(null, details);
+				});
+			},
+			function(callback) {
+				Cate.findOne({id:req.param('id')}).populate('details').exec(function(err, cate){
+					callback(null, cate);
+				});
+			},
+			function(callback) {
+				Detail.findOne({id:req.param('id')}).populate('owner').exec(function(err, detail){
+					callback(null, detail);
+				});
+			}
+		],//option callback
+		function(err, results){
+			res.view('order/tempOrder', {
+				results: results
+			});
+		});
 	}
 };
 

@@ -43,7 +43,6 @@ a:hover {
 	border: 1px solid #333;
 	text-align: center;
 	font-size: 18px;
-	padding: 15px 0;
 	position: relative;
 }
 .prd-itm  a:hover .itm-meta {
@@ -94,7 +93,9 @@ a:hover {
     border-radius: 0px;
 }
 .img-prd {
-	height: 200px;
+	height: 210px;
+	width: 100%;
+
 }
 .prd-title {
 	display: block;
@@ -111,7 +112,9 @@ a:hover {
 	color: #ed1c24;
 	font-size: 25px;
 }
-
+.timer{
+	font-size: 13px;
+}
 
 /* DEAL ITM BLK */
 .box {

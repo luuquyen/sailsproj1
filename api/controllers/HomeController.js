@@ -78,7 +78,7 @@ module.exports = {
 			}
 		],//option callback
 		function(err, results){
-			res.view('detail', {
+			res.view('deal', {
 				results: results
 			});
 		});

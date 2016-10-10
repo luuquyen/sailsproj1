@@ -46,7 +46,7 @@ module.exports = {
 
 		Detail.create(req.params.all()).exec(function (err, detail) {
 			if (err) {
-				console.log(err);
+
 				return next(err);
 			}
 			req.file('image').upload({

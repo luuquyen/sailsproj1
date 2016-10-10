@@ -14,17 +14,19 @@ block main
 							-for (var i = 0; i < results[1].length; i++)	
 								.col-md-3
 									.prd-itm
-										a(href="#")
+										a(href="/deal?id=#{results[1][i].id}")
 											if (results[1][i].image)
-												img.img-prd(src="#{sails.getBaseurl()}/images/products/#{results[1][i].image}", alt="product")
-												input(type="hidden", value="#{results[1][i].image}", name="image")
+												figure
+													img.img-prd(src="#{sails.getBaseurl()}/images/products/#{results[1][i].image}", alt="product")
+													input(type="hidden", value="#{results[1][i].image}", name="image")
 											p.txt-name-prd #{results[1][i].nameprd}
 											p.txt-new-price
 												span #{results[1][i].price}
 												sup đ
 											.itm-meta
 												.time-off
-													span Con
-													span(class="countime-down" data-time="#{results[1][i].dateOff}")
+													p.timer
+														span còn&#32;
+														span(class="countime-down" data-time="#{results[1][i].dateOff}")
 												.btn-buy-now
 													span Mua ngay

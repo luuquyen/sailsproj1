@@ -35,6 +35,9 @@ module.exports.policies = {
   },
   detail: {
     '*': "sessionAuth"
+  },
+   order: {
+    '*': "sessionAuth"
   }
 
 

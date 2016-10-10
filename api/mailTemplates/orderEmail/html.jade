@@ -1,28 +1,18 @@
 // api/emailTemplates/welcomeEmail/html.ejs
 
-p Chao&#32;
+p Hi&#32;
 	span= Name
 
-p Ban da mua san pham tu HOtdeal.vn
-p Chi tiet don dat hang: 
-	.row
-		.col-md-5
-			span Ten san pham
-		.col-md-7
-			span= Deal
-	.row
-		.col-md-5
-			span Gia san pham
-		.col-md-7
-			span= Price
-	.row
-		.col-md-5
-			span So dt nguoi nhan
-		.col-md-7
-			span= Phone
-	p Dia chi giao hang:
-		span= House
-		span= Street
-		span= Ward
-		span= District
-		span= City
+p Bạn đã đặt hàng sản phẩm từ Hotdeal.vn
+p Chi tiết đơn đặt hàng:
+	p
+		span tên sản phẩm:
+		span= Deal
+	p
+		span Giá sản phẩm:
+		span= Price
+	p
+		span Số điện thoại người nhận: 
+		span= Phone
+	p Địa chỉ giao hàng: 
+		span #{House}&#32;#{Street}&#32;#{Ward}&#32;#{District}&#32;#{City}&#32;

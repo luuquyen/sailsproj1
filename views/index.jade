@@ -4,14 +4,6 @@ extends layouts/layout
 block main  
 	.hm-sec-blk
 		.container
-			ul.main-menu.clearfix
-				li.had-child
-					a(href="javascript:;") Danh mục sản phẩm+
-					.sub-menu
-						ul
-							- each cate in results[0]
-								li
-									a(href="/category/?id=#{cate.id}") #{cate.name}
 			-for (var i = 0; i < results[0].length; i++)
 				.prd-itm-blk
 					h1.prd-title #{results[0][i].name}
@@ -24,16 +16,18 @@ block main
 									.prd-itm
 										a(href="/deal?id=#{results[0][i].details[j].id}")
 											if (results[0][i].details[j].id)
-												img.img-prd(src="#{sails.getBaseurl()}/images/products/#{results[0][i].details[j].image}", alt="product")
-												input(type="hidden", value="#{results[0][i].details[j].image}", name="image")
+												figure
+													img.img-prd(src="#{sails.getBaseurl()}/images/products/#{results[0][i].details[j].image}", alt="product")
+													input(type="hidden", value="#{results[0][i].details[j].image}", name="image")
 											p.txt-name-prd #{results[0][i].details[j].nameprd}
 											p.txt-new-price
 												span #{results[0][i].details[j].price}
 												sup đ
 											.itm-meta
 												.time-off
-													span Con
-													span(class="countime-down" data-time="#{results[0][i].details[j].dateOff}")
+													p.timer
+														span còn&#32;
+														span(class="countime-down" data-time="#{results[0][i].details[j].dateOff}")
 												.btn-buy-now
 													span Mua ngay
 						.full-prd

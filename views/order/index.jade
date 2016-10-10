@@ -3,7 +3,7 @@ block vars
 
 extends ../layoutadmin
 block body
-	h2(style="display:inline-block;") Your order product list
+	h2(style="display:inline-block;") Have #{orders.length} order
 		
 	table.table
 		tr
@@ -21,7 +21,7 @@ block body
 				td= order.nameOrder
 				td= order.phoneOrder
 				td= order.emailOrder
-				td #{order.houseOder} #{order.streetOder} #{order.wardOder} #{order.districtOder} #{order.cityOder}
+				td #{order.houseOrder} #{order.streetOrder} #{order.wardOrder} #{order.districtOrder} #{order.cityOrder}
 				td
 					a(href="/order/destroy/"+order.id class="btn btn-sn btn-danger") Delete
 				

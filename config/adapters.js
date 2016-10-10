@@ -1,10 +1,10 @@
-module.exports.adapters = {
+// module.exports.adapters = {
 
-  'default': 'mongo',
+//   'default': 'mongo',
 
-  mongo: {
-    module   : 'sails-mongo',
-    url: process.env.DB_URL,
-    schema: true
-  }
-};
+//   mongo: {
+//     module   : 'sails-mongo',
+//     url: process.env.DB_URL,
+//     schema: true
+//   }
+// };

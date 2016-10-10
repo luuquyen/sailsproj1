@@ -54,7 +54,7 @@ block main
 										label Thành phố 
 										input.form-control(name="cityOrder", type='text', placeholder='Ví dụ: Thành phố Hồ Chí Minh')
 							input(type="hidden", name="_csrf", value=_csrf)
-							button.btn.btn-lg.btn-primary Cap nhat
+							button.btn.btn-lg.btn-primary Cập nhật
 										
 	
 				.col-md-4
@@ -62,14 +62,14 @@ block main
 						p Thông tin sản phẩm
 						hr
 						.row
-							.col-md-5
+							.col-md-6
 								span Tên sản phẩm
-							.col-md-7
+							.col-md-6
 								span #{results[3].nameprd}
 						.row
-							.col-md-5
+							.col-md-6
 								span Giá sản phẩm
-							.col-md-7
+							.col-md-6
 								span #{results[3].price}
 			
 

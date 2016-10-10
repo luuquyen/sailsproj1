@@ -3,10 +3,9 @@ block vars
 extends ../layoutadmin
 block body
 	.container
-		h2(style="display:inline-block;") Detail product list
 		a(style="display:inline-block;" href="/detail/new" class="btn btn-sn btn-primary")
 			i(class="fa fa-plus" aria-hidden="true")
-				|Detail product	
+				|Add deal	
 		h2 Please choose category products
 
 		form(action="/detail/list/", method="POST", enctype="multipart/form-data")

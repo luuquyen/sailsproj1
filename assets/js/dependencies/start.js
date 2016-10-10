@@ -8,14 +8,18 @@
 /* ----------------------------------------------- */
 //Function count down timer
 function countDown () {
-	if (!$('.countime-down').length) {$(this).parent().remove()}
+	if (!$('.countime-down').length) {return;}
 
 	$('.countime-down').each(function(){
 		$(this).countdown($(this).data('time'),function(event) {
-			$(this).html(event.strftime('%D days %H:%M:%S'));		
+			$(this).html(event.strftime('%D ngày %H:%M:%S'));		
 		})
 		.on('finish.countdown', function(event) {
-			$(this).parent().remove()
+			$(this).parent().remove();
+			$(this).parent().click(function(e){
+                alert('Đã hết thời gian mua sản phẩm này');
+                e.preventDefault();
+            });
 		});
 	});
 };

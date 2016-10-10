@@ -10,7 +10,7 @@ module.exports = {
 
 			{
 				verify_token: crypto.createHash('md5').update(obj.id.toString()).digest("hex"),
-				link: "http://hotdealvn.herokuapp.com/user/verify?code=" + verify_token,
+				link: "http://localhost:1337/user/verify?code=" + verify_token,
 				Name: obj.name
 			},
 
